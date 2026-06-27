@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Записаться — Равновесие</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Равновесие</div>
+      <nav class="main-nav">
+        <a href="about.html">О нас</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <a class="btn small" href="auth.html">Войти</a>
+    </div>
+  </header>
+
+  <main class="booking-page">
+    <section class="container booking-hero">
+      <h1>ЗАПИСЬ</h1>
+      <p class="muted">Выберите удобное занятие и заполните короткую форму — мы подтвердим вашу запись.</p>
+
+      <div class="booking-grid">
+        <div class="booking-left">
+          <div class="schedule-embed">
+            <!-- Reuse calendar as reference (static) -->
+            <iframe src="schedule.html" title="Календарь" style="width:100%;height:360px;border:0;border-radius:12px;overflow:hidden"></iframe>
+          </div>
+        </div>
+
+        <aside class="booking-right">
+          <form id="booking-form" class="booking-form" onsubmit="submitBooking(event)">
+            <label>Выберите практику
+              <select required>
+                <option value="">-- Выберите --</option>
+                <option>Виньяса-флоу</option>
+                <option>Хатха-йога</option>
+                <option>Йога для новичков</option>
+                <option>Медитация</option>
+              </select>
+            </label>
+
+            <label>Дата
+              <input type="date" required>
+            </label>
+
+            <label>Время
+              <select required>
+                <option value="">-- Выберите --</option>
+                <option>07:00</option>
+                <option>09:00</option>
+                <option>17:00</option>
+                <option>19:00</option>
+              </select>
+            </label>
+
+            <label>Имя
+              <input type="text" placeholder="Ваше имя" required>
+            </label>
+
+            <label>Телефон
+              <input type="tel" placeholder="+7 900 000 00 00" required>
+            </label>
+
+            <label>Email
+              <input type="email" placeholder="example@mail.com">
+            </label>
+
+            <button class="btn auth-btn" type="submit">Записаться</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© Равновесие — студия йоги</div>
+  </footer>
+
+  <script>
+    function submitBooking(e){
+      e.preventDefault();
+      alert('Спасибо — заявка отправлена. Мы свяжемся с вами для подтверждения.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

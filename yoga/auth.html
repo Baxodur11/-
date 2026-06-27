@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Вход / Регистрация — Равновесие</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Равновесие</div>
+      <nav class="main-nav">
+        <a href="index.html">О нас</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <a class="btn small" href="auth.html">Войти</a>
+    </div>
+  </header>
+
+  <main class="auth-page">
+    <section class="container auth-hero">
+      <div class="auth-switch">
+        <button id="btn-login" class="switch active">Вход</button>
+        <button id="btn-register" class="switch">Регистрация</button>
+      </div>
+
+      <form id="form-login" class="auth-form" onsubmit="return false;">
+        <label>Логин
+          <input type="text" placeholder="Введите ваш логин">
+        </label>
+        <label>Пароль
+          <div class="password-wrap">
+            <input id="login-pass" type="password" placeholder="Введите ваш пароль">
+            <button type="button" class="icon-btn" onclick="togglePassword('login-pass')">👁️</button>
+          </div>
+        </label>
+        <div class="form-row">
+          <label class="checkbox"><input type="checkbox"> Запомнить меня</label>
+          <a class="muted" href="#">Забыли пароль?</a>
+        </div>
+        <button class="btn auth-btn">Войти</button>
+      </form>
+
+      <form id="form-register" class="auth-form hidden" onsubmit="return false;">
+        <label>Email
+          <input type="email" placeholder="Введите ваш email">
+        </label>
+        <label>Логин
+          <input type="text" placeholder="Введите ваш логин">
+        </label>
+        <label>Пароль
+          <div class="password-wrap">
+            <input id="reg-pass" type="password" placeholder="Введите ваш пароль">
+            <button type="button" class="icon-btn" onclick="togglePassword('reg-pass')">👁️</button>
+          </div>
+        </label>
+        <button class="btn auth-btn">Регистрация</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© Равновесие — студия йоги</div>
+  </footer>
+
+  <script>
+    const btnLogin = document.getElementById('btn-login');
+    const btnRegister = document.getElementById('btn-register');
+    const formLogin = document.getElementById('form-login');
+    const formRegister = document.getElementById('form-register');
+
+    btnLogin.addEventListener('click', ()=>{
+      btnLogin.classList.add('active'); btnRegister.classList.remove('active');
+      formLogin.classList.remove('hidden'); formRegister.classList.add('hidden');
+    });
+    btnRegister.addEventListener('click', ()=>{
+      btnRegister.classList.add('active'); btnLogin.classList.remove('active');
+      formRegister.classList.remove('hidden'); formLogin.classList.add('hidden');
+    });
+
+    function togglePassword(id){
+      const el = document.getElementById(id);
+      if(el.type === 'password') el.type = 'text'; else el.type = 'password';
+    }
+  </script>
+</body>
+</html>
